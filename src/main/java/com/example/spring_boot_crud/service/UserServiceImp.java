@@ -36,13 +36,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User getUser(Long id) {
-        User user = null;
-        Optional<User> optionalUser = userRepository.findById(id);
-        if(optionalUser.isPresent()) {
-            user = optionalUser.get();
-
-        }
-        return user;
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
